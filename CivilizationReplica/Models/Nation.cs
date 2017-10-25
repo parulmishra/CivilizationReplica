@@ -21,6 +21,8 @@ namespace CivilizationReplica.Models
 
         public virtual User User { get; set; }
 
+        public Nation()
+        {}
         public Nation(string Nation, string Government, string Economy, string Geography)
         {
             NationName = Nation;

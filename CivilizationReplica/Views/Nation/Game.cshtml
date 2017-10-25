@@ -1,0 +1,36 @@
+﻿@model CivilizationReplica.Models.Nation
+
+
+@if(model != null)
+{
+<div>
+    <p>@Html.DisplayNameFor(m=>m.NationName)</p>
+    <p>@Html.DisplayFor(m=>m.NationName)</p>
+
+    <p>@Html.DisplayNameFor(m=>m.GovernmentType)</p>
+    <p>@Html.DisplayFor(m=>m.GovernmentType)</p>
+
+    <p>@Html.DisplayNameFor(m=>m.EconomyType)</p>
+    <p>@Html.DisplayFor(m=>m.EconomyType)</p>
+
+    <p>@Html.DisplayNameFor(m=>m.GeographyType)</p>
+    <p>@Html.DisplayFor(m=>m.GeographyType)</p>
+
+    <p>@Html.DisplayNameFor(m=>m.Capital)</p>
+    <p>@Html.DisplayFor(m=>m.Capital)</p>
+
+    <p>@Html.DisplayNameFor(m=>m.Resources)</p>
+    <p>@Html.DisplayFor(m=>m.Resources)</p>
+
+    <p>@Html.DisplayNameFor(m=>m.Population)</p>
+    <p>@Html.DisplayFor(m=>m.Population)</p>
+
+    <p>@Html.DisplayNameFor(m=>m.Stability)</p>
+    <p>@Html.DisplayFor(m=>m.Stability)</p>
+
+</div>
+}
+else
+{
+    @Html.ActionLink("Create Nation", "Create", "Nation")
+}

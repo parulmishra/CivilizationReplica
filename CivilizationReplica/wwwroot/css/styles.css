@@ -10,8 +10,12 @@
     color: grey;
 }
 
-    .logoff:hover, .user-nav:hover {
+.logoff:hover, .user-nav:hover {
         color: #ffffff;
         cursor: pointer;
-    }
+}
+.welcome {
+    margin-top: 100px;
+    text
+}
     

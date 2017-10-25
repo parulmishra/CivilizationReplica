@@ -1,22 +1,26 @@
-﻿@using CivilizationReplica.Models
+﻿@model CivilizationReplica.Models.Nation
 
-<h3>Build your Nation</h3>
+<head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+     <script type="text/javascript">
+		
+        $(document).ready(function () {
+            $('.play').click(function () {
+                 $.ajax({
+                    type: 'GET',
+                    dataType: 'html',
+                    url: '@Url.Action("Game")',
+                    success: function (result) {
+                        $('#nationInfo').html(result);
+                     }
+                    });
+              });
+		});
+	</script>
+</head>
+<body>
+	<button class="btn btn-lg play" type="button">Play</button>
+	<div id="nationInfo"></div>
+</body>
 
-<div>
-	@using (Html.BeginForm("Create","Nation", FormMethod.Post))
-	{
-	    <h4>Nation Name :</h4>
-	    @Html.TextBoxFor(nation => nation.NationName)
 
-	    <h4>Nation's Government Type :</h4>
-        @Html.TextBoxFor(nation => nation.GovernmentType)
-	
-	    <h4>Nation's Economy Type :</h4>
-        @Html.TextBoxFor(nation => nation.EconomyType)
-
-	    <h4>Nation's Geography Type :</h4>
-        @Html.TextBoxFor(nation => nation.GeographyType)
-
-	    <input type = "submit" value = "create" />
-	}
-</div>

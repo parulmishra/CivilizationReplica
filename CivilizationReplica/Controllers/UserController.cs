@@ -38,7 +38,7 @@ namespace CivilizationReplica.Controllers
 
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Create", "Nation", new {id = user.Id});
             }
             else
             {
@@ -59,7 +59,7 @@ namespace CivilizationReplica.Controllers
             // In above line we are using SignInManagers Asysnchronous PasswordInaAsync method to sign a user in with their credentials.
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Create", "Nation");
             }
             else
             {
