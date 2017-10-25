@@ -1,32 +1,45 @@
 ﻿@model CivilizationReplica.Models.Nation
+<head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+     <script type="text/javascript">
+        
+        $(document).ready(function () {
+            $('.events').click(function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: '@Url.Action("EventGenerator")',
+                    type: 'GET',
+                    data: $(this).serialize(),
+                    dataType: 'json',
+                    success: function (result) {
+                        var stringResult = '<h3>' + result + '</h3>';
+                        }
+                        $('#event').html(stringResult);
+                    }
+            });
+        });
+    </script>
+</head>
 
-
-@if(model != null)
+@if(Model != null)
 {
-<div>
-    <p>@Html.DisplayNameFor(m=>m.NationName)</p>
-    <p>@Html.DisplayFor(m=>m.NationName)</p>
-
-    <p>@Html.DisplayNameFor(m=>m.GovernmentType)</p>
-    <p>@Html.DisplayFor(m=>m.GovernmentType)</p>
-
-    <p>@Html.DisplayNameFor(m=>m.EconomyType)</p>
-    <p>@Html.DisplayFor(m=>m.EconomyType)</p>
-
-    <p>@Html.DisplayNameFor(m=>m.GeographyType)</p>
-    <p>@Html.DisplayFor(m=>m.GeographyType)</p>
-
-    <p>@Html.DisplayNameFor(m=>m.Capital)</p>
-    <p>@Html.DisplayFor(m=>m.Capital)</p>
-
-    <p>@Html.DisplayNameFor(m=>m.Resources)</p>
-    <p>@Html.DisplayFor(m=>m.Resources)</p>
-
-    <p>@Html.DisplayNameFor(m=>m.Population)</p>
-    <p>@Html.DisplayFor(m=>m.Population)</p>
-
-    <p>@Html.DisplayNameFor(m=>m.Stability)</p>
-    <p>@Html.DisplayFor(m=>m.Stability)</p>
+<div class="well">
+	
+    <p>@Html.DisplayNameFor(m=>m.NationName) : @Html.DisplayFor(m=>m.NationName)</p>
+    <hr/>
+    <p>@Html.DisplayNameFor(m=>m.GovernmentType) : @Html.DisplayFor(m=>m.GovernmentType)</p>
+    <hr/>
+    <p>@Html.DisplayNameFor(m=>m.EconomyType) : @Html.DisplayFor(m=>m.EconomyType)</p>
+     <hr/>
+    <p>@Html.DisplayNameFor(m=>m.GeographyType) : @Html.DisplayFor(m=>m.GeographyType)</p>
+     <hr/>
+    <p>@Html.DisplayNameFor(m=>m.Capital) : @Html.DisplayFor(m=>m.Capital)</p>
+     <hr/>
+    <p>@Html.DisplayNameFor(m=>m.Resources) : @Html.DisplayFor(m=>m.Resources)</p>
+     <hr/>
+    <p>@Html.DisplayNameFor(m=>m.Population) : @Html.DisplayFor(m=>m.Population)</p>
+     <hr/>
+    <p>@Html.DisplayNameFor(m=>m.Stability) : @Html.DisplayFor(m=>m.Stability)</p>
 
 </div>
 }
@@ -34,3 +47,7 @@ else
 {
     @Html.ActionLink("Create Nation", "Create", "Nation")
 }
+
+<div id="event"></div>
+
+<button class="btn btn-lg events">Events</button>

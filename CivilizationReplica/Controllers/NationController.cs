@@ -55,5 +55,10 @@ namespace CivilizationReplica.Controllers
                                 .FirstOrDefault(m => m.User.Id == userId);
             return View(thisNation);
         }
+        public IActionResult EventGenerator()
+        {
+            var randomEvent = _db.Events.OrderBy(r => Guid.NewGuid());
+            return Json(randomEvent);
+        }
     }
 }
